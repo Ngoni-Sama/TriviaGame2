@@ -1,0 +1,7 @@
+.question-screen {
+    display: none;
+}
+
+.hidden-elem {
+    visibility: collapse;
+}

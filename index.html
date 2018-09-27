@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Trivia Game</title>
+    <link rel="shortcut icon" href="assets/images/flask.png" />
+    <!-- <link href="https://fonts.googleapis.com/css?family=Abril+Fatface|Princess+Sofia" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+</head>
+<header>
+    <h1 class="title">Trivia Game</h1>
+</header>
+
+<body>
+    <div>
+        <main>
+            <section class="opening-screen">
+                <h2>Show your scientific prowess!</h2>
+                <p class="blurb">See how many questions you can answer before time runs out in this chemistry-themed
+                    trivia game.</p>
+                <!-- <img src="assets/images/Selfie Lisa.jpg" alt="Mona Lisa taking a selfie" class="funny-pic"> -->
+                <br>
+                <!-- <br> -->
+                <a href="#top"><button class="start">Start!</button></a>
+            </section>
+            <section class="question-screen">
+                <h2 class="time-instructions">Fill out the periodic table!</h2>
+                <h2 class="time-display">Time left: <span class="time"></span></h2>
+                <hr>
+                <div class="question-container"></div>
+                <br>
+                <div class="submission">
+                    <button class="submit">Submit Answer</button>
+                </div>
+                <div class="progress">
+                    <div class="element-count">Elements left: <span class="num-elements"></span></div>
+                    <table id="periodic-table">
+                        <tr>
+                            <th colspan="18">Periodic Table of Elements</th>
+                        </tr>
+                        <tr>
+                            <td class="hidden-elem" id="Hydrogen">H</td>
+                            <td colspan="16"></td>
+                            <td class="hidden-elem" id="Helium">He</td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-elem" id="Lithium">Li</td>
+                            <td class="hidden-elem" id="Beryllium">Be</td>
+                            <td colspan="10"></td>
+                            <td class="hidden-elem" id="Boron">B</td>
+                            <td class="hidden-elem" id="Carbon">C</td>
+                            <td class="hidden-elem" id="Nitrogen">N</td>
+                            <td class="hidden-elem" id="Oxygen">O</td>
+                            <td class="hidden-elem" id="Fluorine">F</td>
+                            <td class="hidden-elem" id="Neon">Ne</td>
+                        </tr>
+                        <tr>
+                            <td>Na</td>
+                            <td>Mg</td>
+                            <td colspan="10"></td>
+                            <td>Al</td>
+                            <td>Si</td>
+                            <td>P</td>
+                            <td>S</td>
+                            <td>Cl</td>
+                            <td>Ar</td>
+                        </tr>
+                        <tr>
+                            <td>K</td>
+                            <td>Ca</td>
+                            <td>Sc</td>
+                            <td>Ti</td>
+                            <td>V</td>
+                            <td>Cr</td>
+                            <td>Mn</td>
+                            <td>Fe</td>
+                            <td>Co</td>
+                            <td>Ni</td>
+                            <td>Cu</td>
+                            <td>Zn</td>
+                            <td>Ga</td>
+                            <td>Ge</td>
+                            <td>As</td>
+                            <td>Se</td>
+                            <td>Br</td>
+                            <td>Kr</td>
+                        </tr>
+                        <tr>
+                            <td>Rb</td>
+                            <td>Sr</td>
+                            <td>Y</td>
+                            <td>Zr</td>
+                            <td>Nb</td>
+                            <td>Mo</td>
+                            <td>Tc</td>
+                            <td>Ru</td>
+                            <td>Rh</td>
+                            <td>Pd</td>
+                            <td>Ag</td>
+                            <td>Cd</td>
+                            <td>In</td>
+                            <td>Sn</td>
+                            <td>Sb</td>
+                            <td>Te</td>
+                            <td>I</td>
+                            <td>Xe</td>
+                        </tr>
+                        <tr>
+                            <td>Cs</td>
+                            <td>Bs</td>
+                            <td></td>
+                            <td>Hf</td>
+                            <td>Ta</td>
+                            <td>W</td>
+                            <td>Re</td>
+                            <td>Os</td>
+                            <td>Ir</td>
+                            <td>Pt</td>
+                            <td>Au</td>
+                            <td>Hg</td>
+                            <td>Tl</td>
+                            <td>Pb</td>
+                            <td>Bi</td>
+                            <td>Po</td>
+                            <td>At</td>
+                            <td>Rn</td>
+                        </tr>
+                        <tr>
+                            <td>Fr</td>
+                            <td>Ra</td>
+                            <td></td>
+                            <td>Rf</td>
+                            <td>Db</td>
+                            <td>Sg</td>
+                            <td>Bh</td>
+                            <td>Hs</td>
+                            <td>Mt</td>
+                            <td>Ds</td>
+                            <td>Rg</td>
+                            <td>Cn</td>
+                            <td>Nh</td>
+                            <td>Fl</td>
+                            <td>Mc</td>
+                            <td>Lb</td>
+                            <td>Ts</td>
+                            <td>Og</td>
+                        </tr>
+                        <tr></tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>La</td>
+                            <td>Ce</td>
+                            <td>Pr</td>
+                            <td>Nd</td>
+                            <td>Pm</td>
+                            <td>Sm</td>
+                            <td>Eu</td>
+                            <td>Gd</td>
+                            <td>Tb</td>
+                            <td>Dy</td>
+                            <td>Ho</td>
+                            <td>Er</td>
+                            <td>Tm</td>
+                            <td>Yb</td>
+                            <td>Lu</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
+                            <td>Ac</td>
+                            <td>Th</td>
+                            <td>Pa</td>
+                            <td>U</td>
+                            <td>Np</td>
+                            <td>Pu</td>
+                            <td>Am</td>
+                            <td>Cm</td>
+                            <td>Bk</td>
+                            <td>Cf</td>
+                            <td>Es</td>
+                            <td>Fm</td>
+                            <td>Md</td>
+                            <td>No</td>
+                            <td>Lr</td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <!-- <section class="results">
+                <h2>Results</h2>
+                <p class="correct">Correct: <span class="num-correct"></span></p>
+                <p class="wrong">Wrong: <span class="num-wrong"></span></p>
+                <p class="unanswered">Unanswered: <span class="num-unanswered"></span></p>
+                <aside class="details">Click for details
+                    <ul class="detailed-results"></ul>
+                </aside>
+                <p class="message">Thanks for playing! Try researching the topics you saw and see if you can earn a
+                    higher score.</p>
+                <button class="reset">Play Again?</button>
+            </section> -->
+        </main>
+    </div>
+    <script rel="text/javascript" src="assets/javascript/app.js"></script>
+</body>
+
+</html>
